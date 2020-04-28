@@ -11,6 +11,7 @@ pipeline {
       }
       steps {
         sh 'mvn -B -DskipTests clean package'
+        sh 'rm /target_build/*'
         sh 'cp /var/jenkins_home/workspace/simple-java-maven-app_master/target/my-app-1.0-SNAPSHOT.jar /target_build/'
       }
     }
@@ -18,6 +19,7 @@ pipeline {
     stage('Deploy') {
       agent any
       steps {
+        sh 'ssh admin@reta-app.fr "rm /docker/openjdk-docker/src/production/app/*"'
         sh '''scp /var/jenkins_home/workspace/target/* admin@reta-app.fr:/docker/openjdk-docker/src/production/app/
  '''
       }
