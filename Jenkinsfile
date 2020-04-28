@@ -15,6 +15,7 @@ pipeline {
     }
 
     stage('Deploy') {
+      agent any
       steps {
         sh 'ssh admin@reta-app.fr'
       }
