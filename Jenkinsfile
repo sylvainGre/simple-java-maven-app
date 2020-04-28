@@ -19,7 +19,7 @@ pipeline {
     stage('Deploy') {
       agent any
       steps {
-        sh './var/jenkins_home/workspace/scripts/deploy.sh'
+        sh './var/jenkins_home/scripts/deploy.sh'
       }
     }
 
