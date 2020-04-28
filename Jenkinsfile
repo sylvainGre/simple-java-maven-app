@@ -18,7 +18,7 @@ pipeline {
     stage('Deploy') {
       agent any
       steps {
-        sh '''scp /var/jenkins_home/workspace/simple-java-maven-app_master/target/my-app-1.0-SNAPSHOT.jar admin@reta-app.fr:/docker/openjdk-docker/src/production/app/
+        sh '''scp /var/jenkins_home/workspace/target/* admin@reta-app.fr:/docker/openjdk-docker/src/production/app/
  '''
       }
     }
