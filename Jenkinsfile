@@ -19,9 +19,7 @@ pipeline {
     stage('Deploy') {
       agent any
       steps {
-        sh 'ssh admin@reta-app.fr "rm /docker/openjdk-docker/src/production/app/*"'
-        sh '''scp /var/jenkins_home/workspace/target/* admin@reta-app.fr:/docker/openjdk-docker/src/production/app/
- '''
+        sh './var/jenkins_home/workspace/scripts/deploy.sh'
       }
     }
 
