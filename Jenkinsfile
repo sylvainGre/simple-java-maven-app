@@ -23,5 +23,13 @@ pipeline {
       }
     }
 
+    stage('Run docker') {
+      agent any
+      steps {
+        sh '/var/jenkins_home/scripts/build-docker.sh'
+        sh '/var/jenkins_home/scripts/run-docker.sh'
+      }
+    }
+
   }
 }
